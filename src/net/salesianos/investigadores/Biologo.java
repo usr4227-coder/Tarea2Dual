@@ -3,7 +3,7 @@ package net.salesianos.investigadores;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Biologo extends Investigador {
+public class Biologo extends Investigador implements TrabajoDual {
 
     private ArrayList<String> especimenes;
 
@@ -43,4 +43,10 @@ public class Biologo extends Investigador {
             return "Sueldo correcto.";
         }
     }
+
+    @Override
+    public void trabajoDual() {
+        Collections.reverse(especimenes);
+    }
+
 }
