@@ -16,17 +16,28 @@ public class Quimico extends Investigador implements TrabajoDual {
         return nivelToxicidad;
     }
 
-    public void setNivelToxicidad(int nivelToxicidad) {
-        this.nivelToxicidad = nivelToxicidad;
-    }
-
-    public void setEspecimenesBiologo(ArrayList<String> especimenes) {
-        this.especimenesBiologo = especimenes;
+    public void setEspecimenesBiologo(ArrayList<String> especimenesBiologo) {
+        this.especimenesBiologo = especimenesBiologo;
     }
 
     @Override
     public void trabajar() {
         nivelToxicidad += 10;
+    }
+
+    @Override
+    public void trabajoDual() {
+        try {
+            if (especimenesBiologo == null || especimenesBiologo.isEmpty()) {
+                throw new Exception("El químico no tiene especímenes asignados.");
+            }
+
+            especimenesBiologo.sort((a, b) -> Integer.compare(a.length(), b.length()));
+            especimenesBiologo.remove(especimenesBiologo.size() - 1);
+
+        } catch (Exception e) {
+            System.out.println("Error en trabajo dual del Químico: " + e.getMessage());
+        }
     }
 
     @Override
@@ -37,16 +48,4 @@ public class Quimico extends Investigador implements TrabajoDual {
             return "Sueldo correcto.";
         }
     }
-
-    @Override
-    public void trabajoDual() {
-        if (especimenesBiologo == null || especimenesBiologo.isEmpty()) {
-            System.out.println("No hay especímenes para trabajo dual.");
-            return;
-        }
-
-        especimenesBiologo.sort((a, b) -> Integer.compare(a.length(), b.length()));
-        especimenesBiologo.remove(especimenesBiologo.size() - 1);
-    }
-
 }
