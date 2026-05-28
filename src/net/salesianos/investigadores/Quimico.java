@@ -17,4 +17,17 @@ public class Quimico extends Investigador {
         this.nivelToxicidad = nivelToxicidad;
     }
 
+    @Override
+    public void trabajar() {
+        nivelToxicidad += 10;
+    }
+
+    @Override
+    public String estadoDelSueldo() {
+        if (sueldo < 2000) {
+            return "Sueldo insuficiente. Solicitar aumento.";
+        } else {
+            return "Sueldo correcto.";
+        }
+    }
 }
