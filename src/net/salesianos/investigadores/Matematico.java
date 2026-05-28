@@ -8,4 +8,13 @@ public class Matematico extends Investigador {
         super(nombre, especialidad, sueldo);
         this.resultadosActuales = resultadosActuales;
     }
+
+    public int[][] getResultadosActuales() {
+        return resultadosActuales;
+    }
+
+    public void setResultadosActuales(int[][] resultadosActuales) {
+        this.resultadosActuales = resultadosActuales;
+    }
+
 }
