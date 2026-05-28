@@ -26,13 +26,31 @@ public class Biologo extends Investigador implements TrabajoDual {
 
     @Override
     public void trabajar() {
-        if (especimenes.isEmpty()) {
-            System.out.println("No hay especímenes para procesar.");
-            return;
-        }
+        try {
+            if (especimenes == null || especimenes.isEmpty()) {
+                throw new Exception("La lista de especímenes está vacía.");
+            }
 
-        Collections.sort(especimenes);
-        especimenes.remove(especimenes.size() - 1);
+            Collections.sort(especimenes);
+            especimenes.remove(especimenes.size() - 1);
+
+        } catch (Exception e) {
+            System.out.println("Error en Biólogo: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void trabajoDual() {
+        try {
+            if (especimenes == null || especimenes.isEmpty()) {
+                throw new Exception("No hay especímenes para invertir.");
+            }
+
+            Collections.reverse(especimenes);
+
+        } catch (Exception e) {
+            System.out.println("Error en trabajo dual del Biólogo: " + e.getMessage());
+        }
     }
 
     @Override
@@ -43,10 +61,4 @@ public class Biologo extends Investigador implements TrabajoDual {
             return "Sueldo correcto.";
         }
     }
-
-    @Override
-    public void trabajoDual() {
-        Collections.reverse(especimenes);
-    }
-
 }
