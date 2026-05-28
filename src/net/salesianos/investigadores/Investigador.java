@@ -36,4 +36,19 @@ public abstract class Investigador {
         this.sueldo = sueldo;
     }
 
+    public String identificacion() {
+        return "Nombre: " + nombre +
+                ", Especialidad: " + especialidad +
+                ", Sueldo: " + sueldo;
+    }
+
+    public String hacerCalculoBasico(double a, double b) {
+        double suma = a + b;
+        double resta = a - b;
+        return "Suma: " + suma + ", Resta: " + resta;
+    }
+
+    public abstract String estadoDelSueldo();
+
+    public abstract void trabajar();
 }
