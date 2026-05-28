@@ -9,4 +9,12 @@ public class Quimico extends Investigador {
         this.nivelToxicidad = nivelToxicidad;
     }
 
+    public int getNivelToxicidad() {
+        return nivelToxicidad;
+    }
+
+    public void setNivelToxicidad(int nivelToxicidad) {
+        this.nivelToxicidad = nivelToxicidad;
+    }
+
 }
