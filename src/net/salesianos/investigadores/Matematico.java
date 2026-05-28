@@ -17,4 +17,33 @@ public class Matematico extends Investigador {
         this.resultadosActuales = resultadosActuales;
     }
 
+    public void trabajar(int numero) {
+        for (int i = 0; i < resultadosActuales.length; i++) {
+            for (int j = 0; j < resultadosActuales[i].length; j++) {
+                resultadosActuales[i][j] *= numero;
+            }
+        }
+    }
+
+    public void trabajar(int[][] matriz) {
+        for (int i = 0; i < resultadosActuales.length; i++) {
+            for (int j = 0; j < resultadosActuales[i].length; j++) {
+                resultadosActuales[i][j] += matriz[i][j];
+            }
+        }
+    }
+
+    @Override
+    public void trabajar() {
+        System.out.println("El matemático necesita un parámetro para trabajar (entero o matriz).");
+    }
+
+    @Override
+    public String estadoDelSueldo() {
+        if (sueldo < 1800) {
+            return "Sueldo insuficiente. Solicitar aumento.";
+        } else {
+            return "Sueldo correcto.";
+        }
+    }
 }
