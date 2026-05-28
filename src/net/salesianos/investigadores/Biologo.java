@@ -11,4 +11,12 @@ public class Biologo extends Investigador {
         this.especimenes = especimenes;
     }
 
+    public ArrayList<String> getEspecimenes() {
+        return especimenes;
+    }
+
+    public void setEspecimenes(ArrayList<String> especimenes) {
+        this.especimenes = especimenes;
+    }
+
 }
