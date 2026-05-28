@@ -18,18 +18,41 @@ public class Matematico extends Investigador {
     }
 
     public void trabajar(int numero) {
-        for (int i = 0; i < resultadosActuales.length; i++) {
-            for (int j = 0; j < resultadosActuales[i].length; j++) {
-                resultadosActuales[i][j] *= numero;
+        try {
+            if (numero < 0) {
+                throw new Exception("No se puede multiplicar por un número negativo.");
             }
+
+            for (int i = 0; i < resultadosActuales.length; i++) {
+                for (int j = 0; j < resultadosActuales[i].length; j++) {
+                    resultadosActuales[i][j] *= numero;
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error en Matemático: " + e.getMessage());
         }
     }
 
     public void trabajar(int[][] matriz) {
-        for (int i = 0; i < resultadosActuales.length; i++) {
-            for (int j = 0; j < resultadosActuales[i].length; j++) {
-                resultadosActuales[i][j] += matriz[i][j];
+        try {
+            if (matriz == null) {
+                throw new Exception("La matriz recibida es nula.");
             }
+
+            if (matriz.length != resultadosActuales.length ||
+                    matriz[0].length != resultadosActuales[0].length) {
+                throw new Exception("Las matrices no tienen el mismo tamaño.");
+            }
+
+            for (int i = 0; i < resultadosActuales.length; i++) {
+                for (int j = 0; j < resultadosActuales[i].length; j++) {
+                    resultadosActuales[i][j] += matriz[i][j];
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error en Matemático: " + e.getMessage());
         }
     }
 
